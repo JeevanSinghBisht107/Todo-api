@@ -13,8 +13,13 @@ connectDB();
 
 app.use(cors({
     origin:`https://todo-client-delta.vercel.app`,
-    credentials:true
+    credentials:true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization']  // Allow custom headers
 }));
+
+// Handle preflight requests for all routes
+app.options('*', cors());
 
 app.use(express.json());
 app.use(morgan("dev"));
