@@ -12,7 +12,7 @@ const app = express();
 connectDB();
 
 app.use(cors({
-    origin:`https://todo-client-delta.vercel.app/`,
+    origin:`https://todo-client-delta.vercel.app`,
     credentials:true
 }));
 
